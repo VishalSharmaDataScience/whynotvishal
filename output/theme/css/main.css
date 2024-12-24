@@ -99,6 +99,18 @@ li { margin-top: 0.5em;
 }
 
 .readmore { float: right }
+.readmore {
+    color: #C74451;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.readmore:hover {
+    text-decoration: underline;
+    color: #4CAF50;
+}
+
 
 dl {margin: 0 0 1.5em 0;}
 dt {font-weight: bold;}
@@ -197,18 +209,24 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 
 	#banner h1 strong {font-size: 0.36em; font-weight: normal;}
 
+	#banner {
+		background: url('/images/header-background.jpg') no-repeat center center;
+		background-size: cover;
+		padding: 50px 0;
+		color: #fff; /* Ensure text color contrasts with the image */
+	}
+
 	/* Main Nav */
 	#banner nav {
-		background: #000305;
-		font-size: 1.143em;
+		background: rgba(0, 0, 0, 0.8); /* Semi-transparent */		font-size: 1.143em;
 		overflow: auto;
 		line-height: 30px;
 		margin: 0 auto 2em auto;
-		padding: 0;
+		padding: 10;
 		text-align: center;
 		max-width: 800px;
 
-		border-radius: 5px;
+		border-radius: 10px;
 		-moz-border-radius: 5px;
 		-webkit-border-radius: 5px;
 	}
@@ -223,8 +241,23 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 		padding: 5px 1.5em;
 		text-decoration: none;
 	}
-	#banner nav a:hover, #banner nav a:active,
-	#banner nav .active a:link, #banner nav .active a:visited {
+
+	#banner nav a:hover {
+		background: #4CAF50; /* A soft green hover effect */
+		color: #fff;
+		border-radius: 5px;
+		transition: background 0.3s ease-in-out;
+	}
+	
+	#banner nav .active a {
+		background: #C74451;
+		color: #fff;
+		font-weight: bold;
+	},
+
+	#banner nav .active a:link,
+	
+	#banner nav .active a:visited {
 		background: #C74451;
 		color: #fff;
 		text-shadow: none !important;
@@ -244,12 +277,12 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 	Featured
 *****************/
 #featured {
-	background: #fff;
+    background: rgba(205, 200, 48, 0.9); /* Light, soft yellow with transparency */
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px;
 	max-width: 760px;
-
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -273,7 +306,10 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 	Body
 *****************/
 #content {
-	background: #fff;
+	background: #f4f4f4;
+	
+	margin-top: 20px;
+	
 	margin-bottom: 2em;
 	overflow: hidden;
 	padding: 20px 20px;
@@ -283,10 +319,26 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 }
-
+body {
+    background: url('../../images/serene_background.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: #000305; /* Ensure text remains readable */
+	background-size: cover;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    z-index: -1;
+}
 /*
 	Extras
 *****************/
+
 #extras {margin: 0 auto 3em auto; overflow: hidden;}
 
 #extras ul {list-style: none; margin: 0;}
@@ -299,7 +351,7 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 }
 
 #extras a:link, #extras a:visited {
-	color: #444;
+	color: #d4db13;
 	display: block;
 	border-bottom: 1px solid #F4E3E3;
 	text-decoration: none;
@@ -310,23 +362,73 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 
 	/* Blogroll */
 	#extras .blogroll {
+		display: flex;
+		flex-direction: column;
 		float: left;
 		max-width: 615px;
 	}
 
-	#extras .blogroll li {float: left; margin: 0 20px 0 0; max-width: 185px;}
+	#extras .blogroll li {
+		display: flex;
+		flex-direction: column;
+		float: left;
+		margin: 0 20px 0 0;
+		max-width: 185px;}
 
 	/* Social */
-	#extras .social {
-		float: right;
-		max-width: 175px;
+	.social {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		text-align: left;
 	}
+	
+	.social a {
+		text-decoration: none;
+		color: #fff;
+		font-size: 16px;
+	}
+	
+	.social a:hover {
+		color: #329567;
+		text-decoration: underline;
+	}
+	.social {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+	}
+	
+	.social a {
+		text-decoration: none;
+		color: #fff;
+		font-size: 16px;
+	}
+	
+	.social a:hover {
+		color: #34957b;
+		text-decoration: underline;
+	}
+	.social h2 {
+		color: #fff; /* White heading */
+		margin-bottom: 10px;
+	}
+	
+	.social a {
+		color: #C74451; /* Primary text color */
+	}
+	
+	.social a:hover {
+		color: #4CAF50; /* Softer green on hover */
+	}
+	
+	
 
 /*
 	About
 *****************/
 #about {
-	background: #fff;
+	background: #7b3d3d;
 	font-style: normal;
 	margin-bottom: 2em;
 	overflow: hidden;
@@ -340,7 +442,7 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 }
 
 #about .primary {float: left; max-width: 165px;}
-#about .primary strong {color: #C64350; display: block; font-size: 1.286em;}
+#about .primary strong {color: #7543c6; display: block; font-size: 1.286em;}
 #about .photo {float: left; margin: 5px 20px;}
 
 #about .url:link, #about .url:visited {text-decoration: none;}
@@ -350,7 +452,26 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 /*
 	Footer
 *****************/
-#contentinfo {padding-bottom: 2em; text-align: right;}
+
+#contentinfo {
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#contentinfo a {
+    color: #4CAF50; /* Highlight links in the footer */
+    text-decoration: none;
+}
+
+#contentinfo a:hover {
+    color: #81C784;
+    text-decoration: underline;
+}
+
+
 
 /***** Sections *****/
 /* Blog */
@@ -362,7 +483,31 @@ div.figure p.caption, figure p.caption { /* margin provided by figure */
 }
 li:first-child .hentry, #content > .hentry {border: 0; margin: 0;}
 #content > .hentry {padding: 1em 0;}
-.hentry img{display : none ;}
+/* .hentry img{display : none ;}*/
+.hentry img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 10px auto;
+    border-radius: 5px;
+}
+
+.hentry {
+    background: rgba(92, 148, 196, 0.9); /* Soft light blue */
+    border-radius: 30px;
+    padding: 95px;
+    margin-bottom: 40px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.hentry:hover {
+    background: #6d9a29;
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
 .entry-title {font-size: 3em; margin-bottom: 10px; margin-top: 0;}
 .entry-title a:link, .entry-title a:visited {text-decoration: none; color: #333;}
 .entry-title a:visited {background-color: #fff;}
