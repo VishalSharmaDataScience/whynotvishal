@@ -18,7 +18,6 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (
     ("Udna kyu na chahun", "https://open.spotify.com/track/2CfWGWWVeLrmGEPCSGW2m5?si=811dd8006f0f4541"),
-
     ("Dhun-Echoes of Tuco", "https://open.spotify.com/track/0dwQF1AOpDMVltfT7yhd6Y?si=4e176666e0b84f82"),
     ("Mann Baawre", "https://open.spotify.com/track/2LsVvf5pwMq3DkyEzMOVXX?si=7dd0886a06d3417b")
 )
@@ -58,9 +57,13 @@ PAGE_URL = 'pages/{slug}.html'
 PAGE_SAVE_AS = 'pages/{slug}.html'
 
 # Static paths for custom pages
-STATIC_PATHS = ['images', 'extra', 'static']
+STATIC_PATHS = ['../images', '../extra', '../static']
 EXTRA_PATH_METADATA = {
-    'static/custom.css': {'path': 'custom.css'},
+    '../static/css/main.css': {'path': 'theme/css/main.css'},
+    '../static/images/serene_background.webp': {'path': 'theme/images/serene_background.webp'},
+    '../static/images/22625946.jpeg': {'path': 'theme/images/22625946.jpeg'},
+    '../static/images/logo_album_converted.png': {'path': 'theme/images/logo_album_converted.png'},
+    
 }
 
 DISPLAY_CATEGORIES_ON_MENU = False
@@ -69,7 +72,7 @@ DISPLAY_PAGES_ON_MENU = False
 # Basic site info
 SITENAME = "Why Not Vishal"
 SITESUBTITLE = "Music, Data Science, Travel, and More"
-SITELOGO = "static/images/22625946.jpeg"  # Path to your logo image
+SITELOGO = "../static/images/logo_album_converted.png"  # Path to your logo image
 FAVICON = "/images/favicon.ico"
 
 # Pagination

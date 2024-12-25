@@ -7,4 +7,4 @@ Author: Vishal Sharma
 
 
 Welcome to my first blog post on Why Not Vishal!
-![Graduated boy](images/22625946.jpeg)
+![Graduated boy](../../static/images/22625946.jpeg)
