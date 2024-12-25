@@ -1,6 +1,6 @@
 AUTHOR = 'Vishal Sharma'
 SITENAME = 'Why Not, Vishal'
-SITEURL = "whynotvishal"
+SITEURL = ""
 
 
 PATH = "content"
