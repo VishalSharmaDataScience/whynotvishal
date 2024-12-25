@@ -15,13 +15,13 @@
         <header id="banner" class="body">
                 <h1><a href="./">Why Not, Vishal <strong>Music, AI/Data Science, Travel, and More</strong></a></h1>
                 <nav><ul>
-                    <li><a href="https://vishalsharmadatascience.github.io/whynotvishal/index.html">Home</a></li>
-                    <li><a href="https://vishalsharmadatascience.github.io/whynotvishal/category/music.html">Music</a></li>
-                    <li><a href="https://vishalsharmadatascience.github.io/whynotvishal/category/travel.html">Travel</a></li>
-                    <li><a href="https://vishalsharmadatascience.github.io/whynotvishal/category/data-science.html">Data Science</a></li>
-                    <li><a href="https://vishalsharmadatascience.github.io/whynotvishal/category/personal.html">Personal</a></li>
-                    <li><a href="https://vishalsharmadatascience.github.io/whynotvishal/pages/about.html">About</a></li>
-                    <li><a href="https://vishalsharmadatascience.github.io/whynotvishal/pages/contact.html">Contact</a></li>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/travel.html">Travel</a></li>
+                    <li><a href="/category/data-science.html">Data Science</a></li>
+                    <li><a href="/category/personal.html">Personal</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -60,74 +60,116 @@
                 </div><!-- /.social 
         </section><!-- /#extras -->
 
-        <section id="comments-list">
-                <h2>Comments</h2>
-                <div id="comment-items">
-                    <!-- Comments will load here dynamically -->
-                </div>
-            </section>
-            
-            <section id="add-comment">
-                <h2>Add a Comment</h2>
-                <form id="comment-form">
-                    <input type="text" id="comment-name" name="name" placeholder="Your Name" required>
-                    <textarea id="comment-text" name="comment" placeholder="Your Comment" required></textarea>
-                    <button type="submit">Submit</button>
-                </form>
-            </section>
-            
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    const commentForm = document.getElementById("comment-form");
-                    const commentList = document.getElementById("comment-items");
-            
-                    // Backend URL
-                    const backendUrl = "https://your-backend-server.com";
-            
-                    // Fetch and display comments
-                    function fetchComments() {
-                        fetch(`${backendUrl}/comments`)
-                            .then(response => response.json())
-                            .then(data => {
-                                commentList.innerHTML = ""; // Clear existing comments
-                                data.forEach(comment => {
-                                    const commentDiv = document.createElement("div");
-                                    commentDiv.innerHTML = `<strong>${comment.name}</strong>: ${comment.comment}`;
-                                    commentList.appendChild(commentDiv);
-                                });
-                            });
-                    }
-            
-                    // Handle comment submission
-                    commentForm.addEventListener("submit", function (e) {
-                        e.preventDefault();
-                        const formData = new FormData(commentForm);
-            
-                        fetch(`${backendUrl}/comments`, {
-                            method: "POST",
-                            body: formData,
-                        })
-                            .then(response => response.json())
-                            .then(() => {
-                                fetchComments(); // Refresh comments
-                                commentForm.reset(); // Clear the form
-                            });
+    <!-- Comments List -->
+    <section id="comments-list">
+        <h2>Comments</h2>
+        <div id="comment-items">
+            <!-- Comments will load here dynamically -->
+        </div>
+    </section>
+    
+    <!-- Add Comment Form -->
+    <section id="add-comment">
+        <h2>Add a Comment</h2>
+        <form id="comment-form">
+            <input type="text" id="comment-name" name="name" placeholder="Your Name" required>
+            <textarea id="comment-text" name="comment" placeholder="Your Comment" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const commentForm = document.getElementById("comment-form");
+            const commentList = document.getElementById("comment-items");
+
+            // Backend URL
+            const backendUrl = "http://127.0.0.1:8000";
+
+            // Fetch and display comments
+            function fetchComments() {
+                fetch(`${backendUrl}/api/comments/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        commentList.innerHTML = ""; // Clear existing comments
+                        data.forEach(comment => {
+                            const commentDiv = document.createElement("div");
+                            commentDiv.innerHTML = `<strong>${comment.author}</strong>: ${comment.body}`;
+                            commentList.appendChild(commentDiv);
+                        });
+                    })
+                    .catch(error => {
+                        console.error("Error fetching comments:", error);
                     });
-            
-                    // Initial fetch of comments
-                    fetchComments();
-                });
-            </script>
-            
+            }
+
+            // Handle comment submission
+            commentForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const name = document.getElementById("comment-name").value;
+                const text = document.getElementById("comment-text").value;
+
+                fetch(`${backendUrl}/api/add-comment/`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        author: name,
+                        body: text,
+                    }),
+                })
+                    .then(response => response.json())
+                    .then(() => {
+                        fetchComments(); // Refresh comments
+                        commentForm.reset(); // Clear the form
+                    })
+                    .catch(error => {
+                        console.error("Error adding comment:", error);
+                    });
+            });
+
+            // Initial fetch of comments
+            fetchComments();
+        });
+    </script>
 
         <section id="newsletter-signup" style="margin-top: 30px;">
-                <h2>Join Our Newsletter</h2>
-                <p>Subscribe to get the latest updates delivered to your inbox.</p>
-                <form   action="https://formspree.io/f/mgvvowqj"
-                method="POST" data-redirect="/thankyou_newsletter.html">
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
+
+        <form id="newsletter-form">
+            <label for="email">Subscribe to our Newsletter:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+
+        <div id="newsletter-message"></div>
+        
+        <script>
+            document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('email').value;
+
+                    fetch('http://127.0.0.1:8000/api/newsletter-signup/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email }),
+                    })
+                    .then(response => {
+                        console.log("Response status:", response.status);
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log("Response data:", data);
+                        document.getElementById('newsletter-message').innerText = data.message || data.error;
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        document.getElementById('newsletter-message').innerText = "An error occurred. Please try again.";
+                    });
+                });
+        </script>
         </section>
 
         <footer id="contentinfo" class="body">
