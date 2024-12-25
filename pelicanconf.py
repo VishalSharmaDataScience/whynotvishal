@@ -1,6 +1,6 @@
 AUTHOR = 'Vishal Sharma'
 SITENAME = 'Why Not, Vishal'
-SITEURL = "https://vishalsharmadatascience.github.io/whynotvishal"
+SITEURL = ""
 
 
 PATH = "content"
