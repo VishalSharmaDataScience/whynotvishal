@@ -282,6 +282,8 @@ footer a:hover {
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
+
+
 #banner h1 a:link, #banner h1 a:visited {
 	color: inherit; /* Keep consistent color */
 	display: block;
@@ -442,7 +444,7 @@ body::before {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 75%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)); /* Slightly darker overlay for contrast */
     z-index: -1; /* Ensure it’s behind all content */
@@ -938,4 +940,54 @@ body::before {
 #newsletter-signup button:hover {
     background: #2980b9; /* Darker blue on hover */
     transform: translateY(-2px); /* Slight lift */
+}
+
+/* ====================
+   Mobile Styles (Responsive Design)
+   ==================== */
+
+   @media (max-width: 768px) {
+    /* Font sizes for smaller screens */
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    #banner h1 {
+        font-size: 3em;
+    }
+
+    /* Navigation bar adjustments */
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    nav ul li a {
+        padding: 10px 15px;
+    }
+
+    /* Center align text */
+    #content, #extras, #footer {
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Add margin and padding */
+    .body, #banner, #content {
+        margin: 0 auto;
+        padding: 10px 15px;
+    }
 }
