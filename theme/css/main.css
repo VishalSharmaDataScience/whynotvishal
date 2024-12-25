@@ -441,6 +441,7 @@ body {
 /* Dimmed overlay effect */
 
 
+
 body::before {
     content: '';
     position: fixed;
@@ -448,11 +449,12 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
- 
-    background: linear-gradient(to right, #1a1a1a, #1a1a1a); /* Adjust colors */
+    background: none; /* Removes the overlay */
+    
     z-index: -1; /* Ensure it’s behind all content */
     pointer-events: none; /* Prevent overlay from interfering with clicks */
 }
+
 /* Text Enhancements */
 #content p, #content h2, #content h3, #content ul, #content ol {
     margin-bottom: 1em; /* Consistent spacing between elements */
