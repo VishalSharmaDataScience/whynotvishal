@@ -439,14 +439,18 @@ body {
 }
 
 /* Dimmed overlay effect */
+
+
+
 body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
-    width: 75%;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)); /* Slightly darker overlay for contrast */
+    background: rgba(0, 0, 0, 0.1); /* Very light overlay */
+    
     z-index: -1; /* Ensure it’s behind all content */
     pointer-events: none; /* Prevent overlay from interfering with clicks */
 }
@@ -945,49 +949,120 @@ body::before {
 /* ====================
    Mobile Styles (Responsive Design)
    ==================== */
-
+/* ====================
+   Mobile Styles
+   ==================== */
    @media (max-width: 768px) {
-    /* Font sizes for smaller screens */
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    nav ul li a {
-        font-size: 0.9em;
-    }
-
+    /* Header Text */
     #banner h1 {
-        font-size: 3em;
+        font-size: 2.5em; /* Slightly reduce size */
+        text-align: center;
     }
 
-    /* Navigation bar adjustments */
+    /* Navigation Bar */
     nav ul {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; /* Stack menu items vertically */
         align-items: center;
         padding: 10px;
     }
 
     nav ul li {
-        margin-bottom: 10px;
+        margin-bottom: 5px; /* Add spacing between items */
     }
 
     nav ul li a {
-        padding: 10px 15px;
+        font-size: 1em; /* Adjust text size for smaller screens */
+        padding: 10px 15px; /* Add padding for better clickability */
     }
 
-    /* Center align text */
-    #content, #extras, #footer {
-        text-align: center;
+    /* Content Blocks */
+    .hentry {
+        margin-bottom: 20px; /* Increase space between articles */
+        padding: 20px; /* Add inner padding */
+    }
+
+    .hentry h2 {
+        font-size: 1.5em; /* Scale down section headings */
+    }
+
+    #content {
+        padding: 15px; /* Adjust inner spacing */
+        text-align: center; /* Center-align content */
+    }
+
+    /* Footer Adjustments */
+    #contentinfo {
+        font-size: 0.9em; /* Reduce text size in the footer */
         padding: 10px;
     }
 
-    /* Add margin and padding */
-    .body, #banner, #content {
-        margin: 0 auto;
-        padding: 10px 15px;
+    /* Background Image */
+    body {
+        background-size: cover; /* Ensure background scales properly */
+        background-position: center; /* Center the background image */
+    }
+
+    /* Article Titles */
+    .entry-title {
+        font-size: 1.8em; /* Adjust font size of titles */
+        text-align: center;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    /* Navigation Bar */
+    nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 0 15px; /* Add spacing between menu items */
+    }
+
+    nav ul li a {
+        font-size: 1.2em; /* Slightly larger text for desktop */
+        padding: 5px 10px;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+        color: #FFD700; /* Gold color for hover effect */
+    }
+
+    /* Content Block */
+    .hentry {
+        padding: 30px; /* Increase padding */
+        margin-bottom: 40px; /* Add more spacing between blocks */
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    }
+
+    .hentry h2 {
+        font-size: 2em; /* Larger heading for desktop */
+        margin-bottom: 15px;
+    }
+
+    /* Other Articles Section */
+    #content h2 {
+        margin-bottom: 20px;
+        font-size: 1.8em;
+        text-align: left; /* Align heading to the left */
+    }
+
+    .entry-title {
+        font-size: 1.5em;
+    }
+
+    /* Footer */
+    #contentinfo {
+        padding: 20px;
+        font-size: 1em;
+        text-align: center;
+        color: #FFF;
+        background: rgba(0, 0, 0, 0.9); /* Dark background */
     }
 }
