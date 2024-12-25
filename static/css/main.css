@@ -504,99 +504,104 @@ body::before {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+
 /*
 	Extras
 *****************/
 
+/*
+
 #extras {
     display: flex;
-    justify-content: space-between; /* Align links and socials to opposite sides */
-    align-items: flex-start; /* Align items to the top */
-    margin: 30px auto; /* Add spacing and center horizontally */
-    padding: 20px 30px; /* Add consistent padding */
-    max-width: 800px; /* Match the width of the content */
-    background: rgba(0, 0, 0, 0.05); /* Subtle background to distinguish the section */
-    border-radius: 10px; /* Rounded edges */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for elevation */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional border for definition */
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin: 30px auto; /
+    padding: 20px 30px; 
+    max-width: 800px; 
+    background: rgba(0, 0, 0, 0.05); 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
 }
 
-/* Links Section */
+/* Links Section 
 .links {
 
 	
     display: flex;
-    flex-direction: column; /* Stack links vertically */
-    gap: 15px; /* Spacing between links */
-    align-items: flex-start; /* Align to the left */
-    flex: 1; /* Allow equal space for the section */
-    margin-right: 20px; /* Add spacing between sections */
+    flex-direction: column; /* Stack links vertically 
+    gap: 15px; /* Spacing between links 
+    align-items: flex-start; /* Align to the left 
+    flex: 1; /* Allow equal space for the section 
+    margin-right: 20px; /* Add spacing between sections 
 }
 
 .links a {
     display: block;
-    padding: 12px 18px; /* Adjust padding for balance */
-    background: rgba(255, 255, 255, 0.15); /* Slightly darker transparent background */
-    color: #C74350; /* Match the theme’s primary color */
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Subtle rounded corners */
+    padding: 12px 18px; /* Adjust padding for balance 
+    background: rgba(255, 255, 255, 0.15); /* Slightly darker transparent background 
+    color: #C74350; /* Match the theme’s primary color 
+    text-decoration: none; /* Remove underline 
+    border-radius: 5px; /* Subtle rounded corners 
     font-size: 16px;
     font-weight: bold;
-    transition: all 0.3s ease; /* Smooth all transitions */
-}
+    transition: all 0.3s ease; /* Smooth all transitions 
 
 .links a:hover {
-    background: #b125b3; /* Highlight background on hover */
-    color: #000000; /* White text for contrast */
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+    background: #b125b3; /* Highlight background on hover 
+    transform: scale(1.05); /* Slight zoom on hover 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Shadow effect on hover 
 }
 
 .links h2 {
-    color: #c3c743; /* Highlight heading */
-    font-size: 1.429em; /* Emphasize heading size */
+    color: #c3c743; /* Highlight heading 
+    font-size: 1.429em; /* Emphasize heading size 
     margin-bottom: 10px;
-    text-transform: uppercase; /* Capitalize heading */
+    text-transform: uppercase; /* Capitalize heading 
 }
 
-/* Social Section */
+/* Social Section 
 .social {
     display: flex;
-    flex-direction: column; /* Stack socials vertically */
-    gap: 15px; /* Spacing between social links */
-    align-items: flex-end; /* Align to the right */
-    flex: 1; /* Allow equal space for the section */
+    flex-direction: column; /* Stack socials vertically 
+    gap: 15px; /* Spacing between social links 
+    align-items: flex-end; /* Align to the right 
+    flex: 1; /* Allow equal space for the section 
 }
 
 .social a {
     display: block;
-    padding: 12px 18px; /* Consistent padding */
-    background: rgba(255, 255, 255, 0.15); /* Slightly darker transparent background */
-    color: #12041a; /* Primary text color */
+    padding: 12px 18px; /* Consistent padding 
+    background: rgba(255, 255, 255, 0.15); /* Slightly darker transparent background 
+    color: #12041a; /* Primary text color 
     text-decoration: none;
-    border-radius: 5px; /* Subtle rounded corners */
+    border-radius: 5px; /* Subtle rounded corners 
     font-size: 16px;
     font-weight: bold;
-    transition: all 0.3s ease; /* Smooth all transitions */
+    transition: all 0.3s ease; /* Smooth all transitions 
 }
 
 .social a:hover {
-    background: #329567; /* Highlight background on hover */
-    color: #fff; /* White text for contrast */
+    background: #329567; /* Highlight background on hover 
+    color: #fff; /* White text for contrast 
     transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Shadow effect on hover 
 }
 
 
-/* Headings */
+/* Headings 
 #extras h2 {
-    color: #c22112; /* Match theme’s accent color */
-    font-size: 1.429em; /* Emphasize heading size */
-    margin-bottom: 15px; /* Space below heading */
-    text-transform: uppercase; /* Capitalize heading */
-    text-align: center; /* Center-align headings */
+    color: #c22112; /* Match theme’s accent color 
+    font-size: 1.429em; /* Emphasize heading size 
+    margin-bottom: 15px; /* Space below heading 
+    text-transform: uppercase; /* Capitalize heading 
+    text-align: center; /* Center-align headings 
 }
+
+*/
+
 /*
+
 	About
 *****************/
 
@@ -776,83 +781,161 @@ body::before {
     object-fit: cover;
 }
 
+#social-follow a {
+    display: inline-block;
+    transition: transform 0.3s, opacity 0.3s;
+}
+#social-follow a:hover {
+    transform: scale(1.2); /* Slight zoom effect */
+    opacity: 0.8; /* Slight fade effect */
+}
+
 /*
 	Comments Section
 *****************/
-
 #comments-list {
-    list-style: none;
-    margin: 0 1em;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Light background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#comments-list blockquote {
-    background: rgba(255, 255, 255, 0.9); /* Slightly transparent */
-    clear: both;
-    font-style: normal;
-    margin: 0;
-    padding: 15px 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+#comments-list h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #4CAF50; /* Green title */
 }
 
-#comments-list footer {
-    color: #666;
-    padding: .5em 1em 0 0;
-    text-align: right;
+#comment-items {
+    margin-top: 20px;
 }
 
-#comments-list li:nth-child(2n) blockquote {
-    background: rgba(245, 245, 245, 0.9); /* Alternate background for contrast */
+#comment-items div {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9; /* Light gray background */
 }
+
+#comment-items div strong {
+    color: #C74451; /* Highlighted commenter name */
+}
+
 
 /*
 	Add a Comment Form
 *****************/
+#add-comment {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Light background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#add-comment h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #C74451; /* Red title */
+}
 
 #add-comment label {
-    clear: left;
-    float: left;
-    text-align: left;
-    max-width: 150px;
+    display: block;
+    margin-top: 15px;
     font-weight: bold;
-    color: #fff;
+    color: #333;
 }
 
-#add-comment input[type='text'],
-#add-comment input[type='email'],
-#add-comment input[type='url'],
+#add-comment input[type="text"],
 #add-comment textarea {
-    float: left;
-    max-width: 300px;
-    width: 100%; /* Ensure it adapts to smaller screens */
+    width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin-top: 5px;
+    margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
 }
 
 #add-comment textarea {
-    height: 150px; /* Larger area for text input */
+    height: 120px;
 }
 
-#add-comment input[type='submit'] {
-    float: right;
-    padding: 10px 20px;
+#add-comment button {
     background: #4CAF50;
     color: #fff;
+    padding: 10px 20px;
     font-weight: bold;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out; /* Smooth effect */
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out; /* Smooth hover effect */
 }
 
-#add-comment input[type='submit']:hover {
+#add-comment button:hover {
     background: #81C784; /* Lighter green on hover */
-    transform: translateY(-2px); /* Subtle lift on hover */
+    transform: translateY(-2px); /* Slight lift */
 }
 
-#add-comment * {
-    margin-bottom: 0.5em;
+/*
+	Add a newsletter
+*****************/
+#newsletter-signup {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Light background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#newsletter-signup h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #0077B5; /* LinkedIn blue for title */
+}
+
+#newsletter-signup p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555; /* Subtle gray text */
+}
+
+#newsletter-signup input[type="email"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+#newsletter-signup button {
+    background: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+#newsletter-signup button:hover {
+    background: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift */
 }

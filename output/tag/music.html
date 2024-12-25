@@ -4,13 +4,15 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content="Pelican" />
-        <title>Why Not Vishal - music</title>
+        <title>Why Not, Vishal - music</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">Why Not Vishal <strong>Music, Data Science, Travel, and More</strong></a></h1>
+                <h1><a href="/">Why Not, Vishal <strong>Music, AI/Data Science, Travel, and More</strong></a></h1>
                 <nav><ul>
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/category/music.html">Music</a></li>
@@ -18,6 +20,7 @@
                     <li><a href="/category/data-science.html">Data Science</a></li>
                     <li><a href="/category/personal.html">Personal</a></li>
                     <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -87,6 +90,7 @@
             </article></li>
                 </ol><!-- /#posts-list -->
                 </section><!-- /#content -->
+        <!--
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
@@ -95,7 +99,7 @@
                             <li><a href="https://open.spotify.com/track/0dwQF1AOpDMVltfT7yhd6Y?si=4e176666e0b84f82">Dhun-Echoes of Tuco</a></li>
                             <li><a href="https://open.spotify.com/track/2LsVvf5pwMq3DkyEzMOVXX?si=7dd0886a06d3417b">Mann Baawre</a></li>
                         </ul>
-                </div><!-- /.blogroll -->
+                </div><!-- /.blogroll
                 <div class="social">
                         <h2>social</h2>
                         <ul>
@@ -106,15 +110,112 @@
                             <li><a href="https://www.youtube.com/@VishalSharmaOfficialMusic">YouTube</a></li>
                             <li><a href="https://open.spotify.com/artist/6shHNESKziBepIXHJHSHPD">Spotify</a></li>
                         </ul>
-                </div><!-- /.social -->
+                </div><!-- /.social 
         </section><!-- /#extras -->
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
+        <section id="comments-list">
+                <h2>Comments</h2>
+                <div id="comment-items">
+                    <!-- Comments will load here dynamically -->
+                </div>
+            </section>
+            
+            <section id="add-comment">
+                <h2>Add a Comment</h2>
+                <form id="comment-form">
+                    <input type="text" id="comment-name" name="name" placeholder="Your Name" required>
+                    <textarea id="comment-text" name="comment" placeholder="Your Comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const commentForm = document.getElementById("comment-form");
+                    const commentList = document.getElementById("comment-items");
+            
+                    // Backend URL
+                    const backendUrl = "https://your-backend-server.com";
+            
+                    // Fetch and display comments
+                    function fetchComments() {
+                        fetch(`${backendUrl}/comments`)
+                            .then(response => response.json())
+                            .then(data => {
+                                commentList.innerHTML = ""; // Clear existing comments
+                                data.forEach(comment => {
+                                    const commentDiv = document.createElement("div");
+                                    commentDiv.innerHTML = `<strong>${comment.name}</strong>: ${comment.comment}`;
+                                    commentList.appendChild(commentDiv);
+                                });
+                            });
+                    }
+            
+                    // Handle comment submission
+                    commentForm.addEventListener("submit", function (e) {
+                        e.preventDefault();
+                        const formData = new FormData(commentForm);
+            
+                        fetch(`${backendUrl}/comments`, {
+                            method: "POST",
+                            body: formData,
+                        })
+                            .then(response => response.json())
+                            .then(() => {
+                                fetchComments(); // Refresh comments
+                                commentForm.reset(); // Clear the form
+                            });
+                    });
+            
+                    // Initial fetch of comments
+                    fetchComments();
+                });
+            </script>
+            
 
-                <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        <section id="newsletter-signup" style="margin-top: 30px;">
+                <h2>Join Our Newsletter</h2>
+                <p>Subscribe to get the latest updates delivered to your inbox.</p>
+                <form   action="https://formspree.io/f/mgvvowqj"
+                method="POST" data-redirect="/thankyou_newsletter.html">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+        </section>
+
+        <footer id="contentinfo" class="body">
+                <p>&copy; 2024 Why Not, Vishal. All Rights Reserved.</p>
+                <p>
+                    Contact me: <a href="mailto:vishalsharma2204@gmail.com">vishalsharma2204@gmail.com</a>
+                </p>
+                <p>
+                        <div id="social-follow" style="margin-top: 20px;">
+                                <p style="margin-bottom: 10px; font-weight: bold;">Follow me:</p>
+                                <a href="https://www.instagram.com/iamvishalssharma" target="_blank" style="margin: 0 10px; text-decoration: none; color: #E4405F;">
+                                    <i class="fab fa-instagram" style="font-size: 30px;"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/vishalsharma2204/" target="_blank" style="margin: 0 10px; text-decoration: none; color: #0077B5;">
+                                    <i class="fab fa-linkedin" style="font-size: 30px;"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@VishalSharmaOfficialMusic" target="_blank" style="margin: 0 10px; text-decoration: none; color: #FF0000;">
+                                    <i class="fab fa-youtube" style="font-size: 30px;"></i>
+                                </a>
+                                <a href="https://open.spotify.com/artist/6shHNESKziBepIXHJHSHPD" target="_blank" style="margin: 0 10px; text-decoration: none; color: #1DB954;">
+                                    <i class="fab fa-spotify" style="font-size: 30px;"></i>
+                                </a>
+                        </a>
+                        <a href="https://github.com/VishalSharmaDataScience" target="_blank" style="margin: 0 10px; text-decoration: none; color: #333;">
+                            <i class="fab fa-github" style="font-size: 30px;"></i>
+                        </a>
+                            </div>
+
+                </p>
+                <blockquote class="footer-quote">
+                        <p style="font-size: 16px; font-style: italic;">
+                                "मैं अकेला ही चला था जानिब-ए-मंज़िल मगर,<br>
+                                लोग साथ आते गए और कारवाँ बनता गया।" - <strong>Majrooh Sultanpuri</strong>
+                            </p>
+                </blockquote>
         </footer><!-- /#contentinfo -->
 
 </body>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<head>
+        {% block head %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>{% block title %}{{ SITENAME|striptags }}{%endblock%}</title>
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+        {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} RSS Feed" />
+        {% endif %}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+        {% block extra_head %}{% endblock extra_head %}
+        {% endblock head %}
+</head>
+
+<body id="index" class="home">
+{% include 'github.html' %}
+        <header id="banner" class="body">
+                <h1><a href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
+                <nav><ul>
+                {% for title, link in MENUITEMS %}
+                    <li><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                {% if DISPLAY_PAGES_ON_MENU -%}
+                {% for pg in pages %}
+                    <li{% if pg == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
+                {% endfor %}
+                {% endif %}
+                {% if DISPLAY_CATEGORIES_ON_MENU -%}
+                {% for cat, null in categories %}
+                    <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                {% endfor %}
+                {% endif %}
+                </ul></nav>
+        </header><!-- /#banner -->
+        {% block content %}
+        {% endblock %}
+        <!--
+        <section id="extras" class="body">
+        {% if LINKS %}
+                <div class="blogroll">
+                        <h2>{{ LINKS_WIDGET_NAME | default('links') }}</h2>
+                        <ul>
+                        {% for name, link in LINKS %}
+                            <li><a href="{{ link }}">{{ name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                </div><!-- /.blogroll
+        {% endif %}
+        {% if SOCIAL or FEED_ALL_ATOM or FEED_ALL_RSS %}
+                <div class="social">
+                        <h2>{{ SOCIAL_WIDGET_NAME | default('social') }}</h2>
+                        <ul>
+                            {% if FEED_ALL_ATOM %}
+                            <li><a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            {% endif %}
+                            {% if FEED_ALL_RSS %}
+                            <li><a href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                            {% endif %}
+
+                        {% for name, link in SOCIAL %}
+                            <li><a href="{{ link }}">{{ name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                </div><!-- /.social 
+        {% endif %}
+        </section><!-- /#extras -->
+
+        <section id="comments-list">
+                <h2>Comments</h2>
+                <div id="comment-items">
+                    <!-- Comments will load here dynamically -->
+                </div>
+            </section>
+            
+            <section id="add-comment">
+                <h2>Add a Comment</h2>
+                <form id="comment-form">
+                    <input type="text" id="comment-name" name="name" placeholder="Your Name" required>
+                    <textarea id="comment-text" name="comment" placeholder="Your Comment" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const commentForm = document.getElementById("comment-form");
+                    const commentList = document.getElementById("comment-items");
+            
+                    // Backend URL
+                    const backendUrl = "https://your-backend-server.com";
+            
+                    // Fetch and display comments
+                    function fetchComments() {
+                        fetch(`${backendUrl}/comments`)
+                            .then(response => response.json())
+                            .then(data => {
+                                commentList.innerHTML = ""; // Clear existing comments
+                                data.forEach(comment => {
+                                    const commentDiv = document.createElement("div");
+                                    commentDiv.innerHTML = `<strong>${comment.name}</strong>: ${comment.comment}`;
+                                    commentList.appendChild(commentDiv);
+                                });
+                            });
+                    }
+            
+                    // Handle comment submission
+                    commentForm.addEventListener("submit", function (e) {
+                        e.preventDefault();
+                        const formData = new FormData(commentForm);
+            
+                        fetch(`${backendUrl}/comments`, {
+                            method: "POST",
+                            body: formData,
+                        })
+                            .then(response => response.json())
+                            .then(() => {
+                                fetchComments(); // Refresh comments
+                                commentForm.reset(); // Clear the form
+                            });
+                    });
+            
+                    // Initial fetch of comments
+                    fetchComments();
+                });
+            </script>
+            
+
+        <section id="newsletter-signup" style="margin-top: 30px;">
+                <h2>Join Our Newsletter</h2>
+                <p>Subscribe to get the latest updates delivered to your inbox.</p>
+                <form   action="https://formspree.io/f/mgvvowqj"
+                method="POST" data-redirect="/thankyou_newsletter.html">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+        </section>
+
+        <footer id="contentinfo" class="body">
+                <p>&copy; 2024 Why Not, Vishal. All Rights Reserved.</p>
+                <p>
+                    Contact me: <a href="mailto:vishalsharma2204@gmail.com">vishalsharma2204@gmail.com</a>
+                </p>
+                <p>
+                        <div id="social-follow" style="margin-top: 20px;">
+                                <p style="margin-bottom: 10px; font-weight: bold;">Follow me:</p>
+                                <a href="https://www.instagram.com/iamvishalssharma" target="_blank" style="margin: 0 10px; text-decoration: none; color: #E4405F;">
+                                    <i class="fab fa-instagram" style="font-size: 30px;"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/vishalsharma2204/" target="_blank" style="margin: 0 10px; text-decoration: none; color: #0077B5;">
+                                    <i class="fab fa-linkedin" style="font-size: 30px;"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@VishalSharmaOfficialMusic" target="_blank" style="margin: 0 10px; text-decoration: none; color: #FF0000;">
+                                    <i class="fab fa-youtube" style="font-size: 30px;"></i>
+                                </a>
+                                <a href="https://open.spotify.com/artist/6shHNESKziBepIXHJHSHPD" target="_blank" style="margin: 0 10px; text-decoration: none; color: #1DB954;">
+                                    <i class="fab fa-spotify" style="font-size: 30px;"></i>
+                                </a>
+                        </a>
+                        <a href="https://github.com/VishalSharmaDataScience" target="_blank" style="margin: 0 10px; text-decoration: none; color: #333;">
+                            <i class="fab fa-github" style="font-size: 30px;"></i>
+                        </a>
+                            </div>
+
+                </p>
+                <blockquote class="footer-quote">
+                        <p style="font-size: 16px; font-style: italic;">
+                                "मैं अकेला ही चला था जानिब-ए-मंज़िल मगर,<br>
+                                लोग साथ आते गए और कारवाँ बनता गया।" - <strong>Majrooh Sultanpuri</strong>
+                            </p>
+                </blockquote>
+        </footer><!-- /#contentinfo -->
+
+{% include 'analytics.html' %}
+{% include 'disqus_script.html' %}
+</body>
+</html>

@@ -1,5 +1,5 @@
 AUTHOR = 'Vishal Sharma'
-SITENAME = 'Why Not Vishal'
+SITENAME = 'Why Not, Vishal'
 SITEURL = ""
 
 PATH = "content"
@@ -41,10 +41,11 @@ MENUITEMS = [
     ('Data Science', '/category/data-science.html'),
     ('Personal', '/category/personal.html'),
     ('About', '/pages/about.html'),
+    ('Contact', '/pages/contact.html'),
 ]
 
 
-#THEME = "themes/flex"
+THEME = "themes/notmyidea"
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
@@ -70,8 +71,8 @@ DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = False
 
 # Basic site info
-SITENAME = "Why Not Vishal"
-SITESUBTITLE = "Music, Data Science, Travel, and More"
+SITENAME = "Why Not, Vishal"
+SITESUBTITLE = "Music, AI/Data Science, Travel, and More"
 SITELOGO = "../static/images/logo_album_converted.png"  # Path to your logo image
 FAVICON = "/images/favicon.ico"
 
