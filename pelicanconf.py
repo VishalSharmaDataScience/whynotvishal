@@ -1,6 +1,7 @@
 AUTHOR = 'Vishal Sharma'
 SITENAME = 'Why Not, Vishal'
-SITEURL = ""
+SITEURL = "https://vishalsharmadatascience.github.io/whynotvishal"
+
 
 PATH = "content"
 
@@ -35,13 +36,13 @@ SOCIAL = (
 # Menu items
 MAIN_MENU = True
 MENUITEMS = [
-    ('Home', '/index.html'),
-    ('Music', '/category/music.html'),
-    ('Travel', '/category/travel.html'),
-    ('Data Science', '/category/data-science.html'),
-    ('Personal', '/category/personal.html'),
-    ('About', '/pages/about.html'),
-    ('Contact', '/pages/contact.html'),
+    ('Home', f'{SITEURL}/index.html'),
+    ('Music', f'{SITEURL}/category/music.html'),
+    ('Travel', f'{SITEURL}/category/travel.html'),
+    ('Data Science', f'{SITEURL}/category/data-science.html'),
+    ('Personal', f'{SITEURL}/category/personal.html'),
+    ('About', f'{SITEURL}/pages/about.html'),
+    ('Contact', f'{SITEURL}/pages/contact.html'),
 ]
 
 
@@ -82,3 +83,4 @@ DEFAULT_PAGINATION = 10
 COPYRIGHT_YEAR = 2024
 BROWSER_COLOR = "#121212"  # Dark background color
 
+DEBUG = True

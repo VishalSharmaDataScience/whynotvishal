@@ -18,6 +18,8 @@ SETTINGS.update(DEFAULT_CONFIG)
 LOCAL_SETTINGS = get_settings_from_file(SETTINGS_FILE_BASE)
 SETTINGS.update(LOCAL_SETTINGS)
 
+OUTPUT_PATH = 'output/'
+
 CONFIG = {
     "settings_base": SETTINGS_FILE_BASE,
     "settings_publish": "publishconf.py",
@@ -29,6 +31,7 @@ CONFIG = {
     # Host and port for `serve`
     "host": "localhost",
     "port": 8000,
+    
 }
 
 
