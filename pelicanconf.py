@@ -36,13 +36,13 @@ SOCIAL = (
 # Menu items
 MAIN_MENU = True
 MENUITEMS = [
-    ('Home', f'{SITEURL}/index.html'),
-    ('Music', f'{SITEURL}/category/music.html'),
-    ('Travel', f'{SITEURL}/category/travel.html'),
-    ('Data Science', f'{SITEURL}/category/data-science.html'),
-    ('Personal', f'{SITEURL}/category/personal.html'),
-    ('About', f'{SITEURL}/pages/about.html'),
-    ('Contact', f'{SITEURL}/pages/contact.html'),
+    ('Home', f'/index.html'),
+    ('Music', f'/category/music.html'),
+    ('Travel', f'/category/travel.html'),
+    ('Data Science', f'/category/data-science.html'),
+    ('Personal', f'/category/personal.html'),
+    ('About', f'/pages/about.html'),
+    ('Contact', f'/pages/contact.html'),
 ]
 
 
